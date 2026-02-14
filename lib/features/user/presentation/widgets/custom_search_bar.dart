@@ -8,18 +8,18 @@ class CustomSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     
+     final userProvider = context.watch<UserProvider>();
     // watch: يعيد بناء الويدجت لما selectedId يتغير
 
     return Column(
       children: [
         Slider(
-          value: context.watch<UserProvider>().selectedId,
-          onChanged: context.watch<UserProvider>().changeId,
+          value: userProvider.selectedId,
+          onChanged: userProvider.changeId,
           min: 1,
           max: 10,
           divisions: 9,
-          label: "${context.watch<UserProvider>().selectedId.toInt()}",
+          label: "${userProvider.selectedId.toInt()}",
         ),
         GetUserButton(
           onPressed: () => context.read<UserProvider>().fetchUser(),
