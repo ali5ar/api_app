@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: ChangeNotifierProvider(
         create: (_) => UserProvider()..fetchUser(), // أول تحميل حسب selectedId الافتراضي
         child: const UserScreen(),
